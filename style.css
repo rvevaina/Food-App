@@ -1,0 +1,62 @@
+/*Global Styles*/
+
+body {
+  *, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+   }
+}
+
+/*Main Content wrapper*/
+
+h1 {
+	text-align: center;
+	font-size:60px;
+	padding-top:25px;
+}
+
+.wrapper {
+	width:1120px;
+	margin:0;
+	padding:50px;
+}
+
+
+img.and {
+	float:left;
+	width:8%;
+	height:auto;
+	padding: 10% 5% 0 5%;
+
+}
+
+img.food {
+	float:left;
+	margin-left: 13%;
+	border-radius: 50%;	
+	
+}
+
+img.drink {
+	float:left;
+	border-radius: 50%;
+ }
+
+.button {
+  height:60px;
+  width:150px;
+  background:#d6f9dd;
+  border-radius: 7px;
+   }
+.button:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+	
+
+
+/*API information*/
