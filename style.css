@@ -1,9 +1,12 @@
 /*Global Styles*/
 
-body {
-  *, *:before, *:after {
+ *, *:before, *:after {
     -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
    }
+ 
+html {
+/* background: url("images/background2.png");
+ background-size:cover;*/
 }
 
 /*Main Content wrapper*/
@@ -12,6 +15,10 @@ h1 {
 	text-align: center;
 	font-size:60px;
 	padding-top:25px;
+}
+h1.title {
+    background:white;
+    opacity: 0.7;
 }
 
 .wrapper {
@@ -41,38 +48,38 @@ img.drink {
 	border-radius: 50%;
  }
 
- #bourbon {
- 	visibility: hidden;
+ .button2 {
+ 	display: none;
  }
 
-.button {
+.interestedButton {
   height:60px;
   width:150px;
   background:#d6f9dd;
   border-radius: 7px;
    }
-.button:hover {
+.interestedButton:hover {
    border-top-color: #28597a;
    background: #28597a;
    color: #ccc;
    }
-.button:active {
+.interestedButton:active {
    border-top-color: #1b435e;
    background: #1b435e;
    }
 
- .button1 {
+ .notInterestedButton {
   height:60px;
   width:150px;
   background:#d6f9dd;
   border-radius: 7px;
    }
-.button1:hover {
+.notInterestedButton:hover {
    border-top-color: #28597a;
    background: #28597a;
    color: #ccc;
    }
-.button:active {
+.notInterestedButton:active {
    border-top-color: #1b435e;
    background: #1b435e;
    }

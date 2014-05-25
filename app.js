@@ -4,6 +4,8 @@
 
 var foodApp = {}
 
+foodApp.currentPairing = '',
+
 //Make a property to hold API key
 
 // foodApp.apiKey = "wgjnrqfprz74ue73gh7ksnhb";
@@ -12,20 +14,50 @@ var foodApp = {}
 // method to make AJAX request inside init function
 
 foodApp.init= function(){
-foodApp.getlisting ();
-};
+	foodApp.currentPairing = pairs[0];
+	
+
+	// var userChoice = $(".interestedButton").data; 
+
+	
+ };
+
+ $(".interestedButton").click(function(){
+       console.log("click");
+		foodApp.getlisting(foodApp.currentPairing.querystring);
+	});
+
+  
+  $(".notInterestedButton").click(function(){
+    	var randomPair = Math.floor(Math.random()*3);
+	console.log(randomPair);
+	foodApp.currentPairing = pairs[randomPair];
+	var foodImage =$('.food').attr("src", foodApp.currentPairing.foodImg);
+	var drinkImage=$('.drink').attr("src", foodApp.currentPairing.drinkImg);
+	$('.food').append(foodImage);
+	$('.drink').append(drinkImage)
+      
+  });
+
+   // foodApp.currentPairing = pairs[2];
+  	//  // console.log(foodApp.currentPairing)
+  	//  var foodImage =$('.food').attr("src", foodApp.currentPairing.foodImg);
+  	//  var drinkImage=$('.drink').attr("src", foodApp.currentPairing.drinkImg);
+   //   $('.food').append(foodImage);
+   //   $('.drink').append(drinkImage)
 
 //Ajax request 
 
-foodApp.getlisting=function(query){
+foodApp.getlisting = function(pairing){
 	$.ajax({
-  	url: 'http://api.sandbox.yellowapi.com/FindBusiness/?what=nachos+tequila&where=Downtown+Toronto&pgLen=400&pg=1&dist=1&fmt=JSON&lang=en&UID=Eat+This-Drink+that&apikey=wgjnrqfprz74ue73gh7ksnhb',
+  	url: 'http://api.sandbox.yellowapi.com/FindBusiness/?where=Downtown+Toronto&pgLen=400&pg=1&dist=1&fmt=JSON&lang=en&UID=Eat+This-Drink+that&apikey=wgjnrqfprz74ue73gh7ksnhb',
   	type: 'GET',
-	  data: {
+	data: {
+	  what: pairing,
 	  format:'jsonp',
-	  },
+	},
 	  success: function(result) {
-	  	 // console.log(result);
+	  	console.log('success');
 	  	 foodApp.displaylisting(result.listings);
 	  	 // foodApp.displaylisting1(result.listings.address)
 	  	 
@@ -33,11 +65,7 @@ foodApp.getlisting=function(query){
 	});
 };	
 
-var userChoice = $(".button").data; 
 
-$( ".button" ).click(function(){
-	foodApp.init();
-});
 
 //Create a new displayPieces method that will handle parsing 
 
@@ -61,16 +89,16 @@ foodApp.displaylisting = function(data){
 };
 
 //define pairs function 
-	function testmatch() {
-      var foodOne = pairs[0] + pairs[1];
-      var foodTwo = pairs[2] + pairs[3];
-      // var combine = foodOne + foodTwo;
-      // console.log(combine)
-	}
+	// function testmatch() {
+ //      var foodOne = pairs[0] + pairs[1];
+ //      var foodTwo = pairs[2] + pairs[3];
+ //      // var combine = foodOne + foodTwo;
+ //      // console.log(combine)
+	// }
 
 
-  $(".button1").click(function(){
-	
+
+
 // 		function changeImg(){ 
 // 	var imag = document.getElementsByTagName('img'); 
 // 	for(var i=0;i<imag.length;i++){ 
@@ -81,13 +109,13 @@ foodApp.displaylisting = function(data){
 // } 
 // } 
 
-	 document.getElementById("beer").innerHTML ='<img src="images/bourbon.png">';
+	 // document.getElementById("beer").innerHTML ='<img src="images/bourbon.png">';
 
-	$('#restaurants').empty()
+	// $('#restaurants').empty()
 	// $('#burger').empty(),
 	// $('#beer').empty();
 
-  });
+
 
 
 
