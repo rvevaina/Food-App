@@ -41,6 +41,10 @@ img.drink {
 	border-radius: 50%;
  }
 
+ #bourbon {
+ 	visibility: hidden;
+ }
+
 .button {
   height:60px;
   width:150px;
@@ -56,7 +60,22 @@ img.drink {
    border-top-color: #1b435e;
    background: #1b435e;
    }
-	
+
+ .button1 {
+  height:60px;
+  width:150px;
+  background:#d6f9dd;
+  border-radius: 7px;
+   }
+.button1:hover {
+   border-top-color: #28597a;
+   background: #28597a;
+   color: #ccc;
+   }
+.button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
 
 
 /*API information*/
