@@ -14,13 +14,25 @@ foodApp.currentPairing = '',
 // method to make AJAX request inside init function
 
 foodApp.init= function(){
-	foodApp.currentPairing = pairs[0];
-	
-
+	// foodApp.getlisting(foodApp.currentPairing.querystring);
+  
 	// var userChoice = $(".interestedButton").data; 
 
 	
  };
+
+ $(".startButton").click(function(){
+       
+       var randomPair = Math.floor(Math.random()*3);
+       foodApp.currentPairing = pairs[randomPair];
+       var foodImage =$('.food').attr("src", foodApp.currentPairing.foodImg);
+		var drinkImage=$('.drink').attr("src", foodApp.currentPairing.drinkImg);
+		$('.food').append(foodImage);
+		$('.drink').append(drinkImage);
+		$('.startButton').slideToggle(1200);
+		console.log("click");
+		
+	});
 
  $(".interestedButton").click(function(){
        console.log("click");
@@ -35,7 +47,9 @@ foodApp.init= function(){
 	var foodImage =$('.food').attr("src", foodApp.currentPairing.foodImg);
 	var drinkImage=$('.drink').attr("src", foodApp.currentPairing.drinkImg);
 	$('.food').append(foodImage);
-	$('.drink').append(drinkImage)
+	$('.drink').append(drinkImage);
+	$('#restaurants').empty();
+
       
   });
 
