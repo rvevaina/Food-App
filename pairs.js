@@ -3,15 +3,15 @@ var pairs = [
 	{'id':1,
 		'name':'tequila and nachos',
 		"querystring":"tequila+nachos",
-		'foodImg':'images/background.png',
-		'drinkImg':'images/ducks1.jpg'		
+		'foodImg':'images/nachos.jpg',
+		'drinkImg':'images/tequila.jpg'		
 	},
    {
    		'id':2,
 		'name':'wine and steak',
 		"querystring":"wine+steak",
-		'foodImg':'images/bourbon.png',
-		'drinkImg':'images/USA.jpg',
+		'foodImg':'images/steak.jpg',
+		'drinkImg':'images/wine.jpg',
 	},	
 
     {'id':3,
