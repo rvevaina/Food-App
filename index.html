@@ -7,50 +7,45 @@
   <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <!-- title -->
+  <!-- Header -->
 
-   
+  <h1 class="title"><span>Eat this. Drink that.</span></h1>
+
+  <div class="wrapper">
+
+  <div class="location">
+      <h1>Where are you located?</h1><br>
+      <input type = "text"><br>
+      <input type = "submit" value="submit">
+  </div>
 
   <!-- Images -->
 
-<div class="wrapper">
 
-   <h1 class="title"><span>Eat this. Drink that.</span></h1>
-  
-  <div id= "burger"><img class="food" src="images/burger.jpg" height="250" width="250"</div>
-
-  <img class="and" src="images/& sign.png">
-
-  <div id = "beer"><img class="drink" src="images/beer.jpg" height="250" width="250"></div>
-  
+    <div class="images">
+        <div id= "burger"><img class="food" src="images/burger.jpg" height="250" width="250"</div>
+        <img class="and" src="images/& sign.png">
+        <div id = "beer"><img class="drink" src="images/beer.jpg" height="250" width="250"></div>
+    </div>
 <!--   <img class="bourbon" src="images/bourbon.png" height="300" width="400"> -->
-
 
   <!-- buttons -->
 
-  <div class="startButton">
-      <h1>Start</h1>
-  </div>
-
-  <div class="buttonwrapper">
-    <div class="interestedButton">
-       <h2>Interested</h2>
+    <div class="button-wrapper">
+        <div class="interestedButton">
+            <h2>Interested</h2>
+        </div>
+        <div class="notInterestedButton">
+            <h2>Not interested</h2>
+        </div>
     </div>
-    <div class="notInterestedButton">
-      <h2>Not interested</h2>
-    </div> 
-  
-  </div>
-
-    
-
 
   <!-- API Listings -->
 
     <div class="container" id="restaurants"></div>
-  
-    </div> 
-  
+
+    </div> <!--wrapper-->
+
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
