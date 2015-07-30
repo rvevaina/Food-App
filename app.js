@@ -1,66 +1,64 @@
-// Javascript start***************************
+//Create an empty object for the app
+var foodApp = {};
 
-//Create an object for the app 
+// Create empty object to hold food+drink pairings
+foodApp.currentPairing = '';
 
-var foodApp = {}
 
-foodApp.currentPairing = '',
 
-//Make a property to hold API key
+ $("#go").click(function(){
 
-// foodApp.apiKey = "wgjnrqfprz74ue73gh7ksnhb";
-// foodApp.UID = "Eat+This-Drink+that"
+	 // Randomize food and drink pairings
+	 var randomPair = Math.floor(Math.random()*3);
 
-// method to make AJAX request inside init function
+	 //Add food + drink images to current pairing after randomizing pairs array
+	 foodApp.currentPairing = pairs[randomPair];
 
-foodApp.init= function(){
-	// foodApp.getlisting(foodApp.currentPairing.querystring);
-  
-	// var userChoice = $(".interestedButton").data; 
+	 // Access the food + drink images values and give it a src attribute
+	 var foodImage = $('.food').attr("src", foodApp.currentPairing.foodImg);
+	 var drinkImage= $('.drink').attr("src", foodApp.currentPairing.drinkImg);
 
-	
- };
+	 //Append images to the appropriate divs
+	 $('.food').append(foodImage);
+	 $('.drink').append(drinkImage);
 
- $(".startButton").click(function(){
-       
-       var randomPair = Math.floor(Math.random()*3);
-       foodApp.currentPairing = pairs[randomPair];
-       var foodImage =$('.food').attr("src", foodApp.currentPairing.foodImg);
-		var drinkImage=$('.drink').attr("src", foodApp.currentPairing.drinkImg);
-		$('.food').append(foodImage);
-		$('.drink').append(drinkImage);
-		$('.startButton').slideToggle(1200);
-		console.log("click");
-		
-	});
+	 // Animate div opacity on submit click
+	 $('.location').animate({ "opacity": "0" }, 800 );
+	 $('.images').animate({ "opacity": "1" }, 800 );
+	 console.log("click");
+ });
+
+$('#citySearch').keypress(function(e){
+	if(e.which == 13){ //Enter key pressed
+		$('#go').click();//Trigger search button click event
+	}
+});
+
 
  $(".interestedButton").click(function(){
-       console.log("click");
-		foodApp.getlisting(foodApp.currentPairing.querystring);
-	});
+	 console.log("click");
+
+	 // call getListing function calling AJAX request
+	 foodApp.getlisting(foodApp.currentPairing.querystring);
+ });
 
   
-  $(".notInterestedButton").click(function(){
-    	var randomPair = Math.floor(Math.random()*3);
-	console.log(randomPair);
+$(".notInterestedButton").click(function(){
+
+	// Randomize food and drink pairings and append new images
+	var randomPair = Math.floor(Math.random()*3);
 	foodApp.currentPairing = pairs[randomPair];
 	var foodImage =$('.food').attr("src", foodApp.currentPairing.foodImg);
 	var drinkImage=$('.drink').attr("src", foodApp.currentPairing.drinkImg);
 	$('.food').append(foodImage);
 	$('.drink').append(drinkImage);
+
+	//Empty current restaurant listings
 	$('#restaurants').empty();
+});
 
-      
-  });
 
-   // foodApp.currentPairing = pairs[2];
-  	//  // console.log(foodApp.currentPairing)
-  	//  var foodImage =$('.food').attr("src", foodApp.currentPairing.foodImg);
-  	//  var drinkImage=$('.drink').attr("src", foodApp.currentPairing.drinkImg);
-   //   $('.food').append(foodImage);
-   //   $('.drink').append(drinkImage)
-
-//Ajax request 
+//Ajax request to get restaurant listings
 
 foodApp.getlisting = function(pairing){
 	$.ajax({
@@ -73,20 +71,18 @@ foodApp.getlisting = function(pairing){
 	  success: function(result) {
 	  	console.log('success');
 	  	 foodApp.displaylisting(result.listings);
-	  	 // foodApp.displaylisting1(result.listings.address)
-	  	 
 	  }
 	});
 };	
 
 
-
-//Create a new displayPieces method that will handle parsing 
+//displaylisting function to handle parsing the API data
 
 foodApp.displaylisting = function(data){
-//     //put restaurant listings on the page
+
+//put restaurant listings on the page
   $.each(data, function(i, chunk){
-//   	//Inside the $.each function generate the HTML required
+//Inside the $.each function generate the HTML required
     var title = $('<h2>').text(chunk.name);
     var address =$('<p>').text(chunk.address.street);
     var address1 =$('<p>').text(chunk.address.city);
@@ -94,49 +90,9 @@ foodApp.displaylisting = function(data){
     var address3 =$('<p>').text(chunk.address.pcode);
     var distance =$('<p>').text(chunk.distance + " km from Downtown Core");
     var listings = $('<div>').addClass('restaurant').append(title, distance, address, address1,address2,address3);
-    // var location = $('<div>').addClass('address').append(address)
-// foodApp.
 
-// 	//Finally, we append the completed listings divs into the DOM.
+//Finally, append the completed listings divs into the DOM.
 	$('#restaurants').append(listings);
    });
 };
 
-//define pairs function 
-	// function testmatch() {
- //      var foodOne = pairs[0] + pairs[1];
- //      var foodTwo = pairs[2] + pairs[3];
- //      // var combine = foodOne + foodTwo;
- //      // console.log(combine)
-	// }
-
-
-
-
-// 		function changeImg(){ 
-// 	var imag = document.getElementsByTagName('img'); 
-// 	for(var i=0;i<imag.length;i++){ 
-// 	if(imag[i].getAttribute('src')=='images/BEER.jpg'){ 
-// 	imag[i].removeAttribute('height'); 
-// 	imag[i].setAttribute('src','images/bourbon.png'); 
-// } 
-// } 
-// } 
-
-	 // document.getElementById("beer").innerHTML ='<img src="images/bourbon.png">';
-
-	// $('#restaurants').empty()
-	// $('#burger').empty(),
-	// $('#beer').empty();
-
-
-
-
-
-
-//Start of JQuery to get the JS to actually run ****************************************
-
-// $(function(){
-//   foodApp.init();
-
-// }); 

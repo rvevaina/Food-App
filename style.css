@@ -24,7 +24,7 @@ h1.title {
     text-align: center;
     font-size:40px;
     color: white;
-    margin: 10%;
+    margin: 10% 0 8%;
 }
 
  h1.title span {
@@ -34,25 +34,48 @@ h1.title {
  }
 
 .location {
-    width:750px;
-    background:rgba(231, 76, 60, 0.2);
+    width:650px;
+    background: rgba(52,152,219, 0.4);
     border-radius: 15px;
     cursor: pointer;
-    margin: auto;
+    margin: 0 auto 5%;
+    padding: 5% 0;
+    position: relative;
+    z-index: 100;
 }
 
 .location h1 {
     color:white;
     text-align: center;
+    margin-bottom: 2%;
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 2.5rem;
 }
 
 input[type=text] {
-    border: 2px solid white;
-    padding: 15px;
+    border: 1px solid black;
+    padding: 1.5%;
+    display: block;
+    margin: 0 auto 1%;
+    width: 40%;
+    background: none;
+    font-size: 1.8rem;
+    text-align: center;
+}
+input[type=submit]{
+    border: 1px solid white;
+    padding: 1% 5%;
+    display: block;
+    margin: auto;
+    background: #4d061c;
+    opacity: 0.7;
+    font-size: 1.5rem;
+    color: white;
 }
 
 .images{
-    margin-top: -12%;
+    margin-top: -32%;
     opacity: 0;
 }
 .images img.and {

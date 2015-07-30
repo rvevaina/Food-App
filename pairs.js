@@ -1,5 +1,4 @@
 var pairs = [
-   
 	{'id':1,
 		'name':'tequila and nachos',
 		"querystring":"tequila+nachos",
@@ -19,6 +18,5 @@ var pairs = [
 		"querystring":"beer+burger",
 		'foodImg':'images/burger.jpg',
 		'drinkImg':'images/beer.jpg',	
-	},
-	
-]
+	}
+];
