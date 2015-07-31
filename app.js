@@ -4,12 +4,17 @@ var foodApp = {};
 // Create empty object to hold food+drink pairings
 foodApp.currentPairing = '';
 
-
+foodApp.location = '';
 
  $("#go").click(function(){
 
+	 // Send city location to AJAX request
+	 foodApp.location = $("#citySearch").val();
+
+	 console.log(foodApp.location);
+
 	 // Randomize food and drink pairings
-	 var randomPair = Math.floor(Math.random()*3);
+	 var randomPair = Math.floor(Math.random()*8);
 
 	 //Add food + drink images to current pairing after randomizing pairs array
 	 foodApp.currentPairing = pairs[randomPair];
@@ -23,14 +28,14 @@ foodApp.currentPairing = '';
 	 $('.drink').append(drinkImage);
 
 	 // Animate div opacity on submit click
-	 $('.location').animate({ "opacity": "0" }, 800 );
-	 $('.images').animate({ "opacity": "1" }, 800 );
-	 console.log("click");
+	 $('.location').animate({ "opacity": "0" }, 1200 );
+	 $('.images').animate({ "opacity": "1" }, 1200 );
  });
 
 $('#citySearch').keypress(function(e){
 	if(e.which == 13){ //Enter key pressed
 		$('#go').click();//Trigger search button click event
+		foodApp.location = $("#citySearch").val();
 	}
 });
 
@@ -40,13 +45,19 @@ $('#citySearch').keypress(function(e){
 
 	 // call getListing function calling AJAX request
 	 foodApp.getlisting(foodApp.currentPairing.querystring);
+
+	 //scroll down to listings
+
+	 $('html, body').animate({
+		 scrollTop: $("#restaurants").offset().top
+	 }, 2000);
  });
 
-  
+
 $(".notInterestedButton").click(function(){
 
 	// Randomize food and drink pairings and append new images
-	var randomPair = Math.floor(Math.random()*3);
+	var randomPair = Math.floor(Math.random()*8);
 	foodApp.currentPairing = pairs[randomPair];
 	var foodImage =$('.food').attr("src", foodApp.currentPairing.foodImg);
 	var drinkImage=$('.drink').attr("src", foodApp.currentPairing.drinkImg);
@@ -60,20 +71,23 @@ $(".notInterestedButton").click(function(){
 
 //Ajax request to get restaurant listings
 
+
+
 foodApp.getlisting = function(pairing){
 	$.ajax({
-  	url: 'http://api.sandbox.yellowapi.com/FindBusiness/?where=Downtown+Toronto&pgLen=400&pg=1&dist=1&fmt=JSON&lang=en&UID=Eat+This-Drink+that&apikey=wgjnrqfprz74ue73gh7ksnhb',
+  	url: 'http://api.sandbox.yellowapi.com/FindBusiness/?pgLen=40&pg=1&dist=1&fmt=JSON&lang=en&UID=Eat+This-Drink+that&apikey=wgjnrqfprz74ue73gh7ksnhb',
   	type: 'GET',
 	data: {
 	  what: pairing,
-	  format:'jsonp',
+	  where: foodApp.location,
+	  format:'jsonp'
 	},
 	  success: function(result) {
 	  	console.log('success');
 	  	 foodApp.displaylisting(result.listings);
 	  }
 	});
-};	
+};
 
 
 //displaylisting function to handle parsing the API data
