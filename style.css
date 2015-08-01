@@ -13,10 +13,10 @@ font-family: 'Raleway', sans-serif;
 
 /*Main Content wrapper*/
 
-.wrapper {
-    width:1200px;
-    margin: auto;
-}
+/*.wrapper {*/
+    /*width:1100px;*/
+    /*margin: auto;*/
+/*}*/
 
 /*Header*/
 
@@ -24,7 +24,7 @@ h1.title {
     text-align: center;
     font-size:40px;
     color: white;
-    margin: 10% 0 8%;
+    margin: 6% 0 5%;
 }
 
  h1.title span {
@@ -34,14 +34,15 @@ h1.title {
  }
 
 .location {
-    width:650px;
+    width: 650px;
     background: rgba(52,152,219, 0.4);
     border-radius: 15px;
     cursor: pointer;
     margin: 0 auto 5%;
-    padding: 5% 0;
-    position: relative;
+    padding: 3.5% 0;
     z-index: 100;
+    position: relative;
+    display: block;
 }
 
 .location h1 {
@@ -80,27 +81,28 @@ input[type=submit]{
     color: white;
 }
 
-.images{
-    margin-top: -32%;
+.wrapper{
     opacity: 0;
 }
+
+.images{
+    margin: 0 auto;
+    width: 700px;
+}
 .images img.and {
-	float:left;
-	width:17%;
-	height:auto;
-	padding: 7% 5% 0 5%;
+    float: left;
+    width: 28%;
+    padding: 10% 9% 0 9%;
 }
 
 .images img.food {
 	float:left;
-	margin-left: 21%;
 	border-radius: 50%;
 }
 
 img.drink {
 	float:left;
 	border-radius: 50%;
-    margin-right: 10%;
 }
 
 .button2 {
@@ -109,7 +111,8 @@ img.drink {
 
 .button-wrapper {
   margin:0 auto;
-  padding: 30% 0 0 26% ;
+  padding-top: 24%;
+  width: 530px;
 }
 
 .interestedButton {
@@ -164,19 +167,20 @@ img.drink {
    background: #1b435e;
 }
 
-
     .restaurant {
       text-align: center;
       float:left;
-      padding:25px;
-      width:300px;
+      padding:20px;
+      width:275px;
       height:300px;
       background:#65cdca;
       border:1px solid white;
 
     }
-    .container {
+    .restaurant-container {
         padding-top: 80px;
+        width: 1100px;
+        margin: auto;
     }
 
    .restaurant p {

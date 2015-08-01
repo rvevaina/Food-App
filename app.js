@@ -14,7 +14,7 @@ foodApp.location = '';
 	 console.log(foodApp.location);
 
 	 // Randomize food and drink pairings
-	 var randomPair = Math.floor(Math.random()*8);
+	 var randomPair = Math.floor(Math.random()*15);
 
 	 //Add food + drink images to current pairing after randomizing pairs array
 	 foodApp.currentPairing = pairs[randomPair];
@@ -28,8 +28,8 @@ foodApp.location = '';
 	 $('.drink').append(drinkImage);
 
 	 // Animate div opacity on submit click
-	 $('.location').animate({ "opacity": "0" }, 1200 );
-	 $('.images').animate({ "opacity": "1" }, 1200 );
+	 $('.location').css({ "display": "none" }, 1200 );
+	 $('.wrapper').animate({ "opacity": "1" }, 1200 );
  });
 
 $('#citySearch').keypress(function(e){
@@ -57,7 +57,7 @@ $('#citySearch').keypress(function(e){
 $(".notInterestedButton").click(function(){
 
 	// Randomize food and drink pairings and append new images
-	var randomPair = Math.floor(Math.random()*8);
+	var randomPair = Math.floor(Math.random()*15);
 	foodApp.currentPairing = pairs[randomPair];
 	var foodImage =$('.food').attr("src", foodApp.currentPairing.foodImg);
 	var drinkImage=$('.drink').attr("src", foodApp.currentPairing.drinkImg);

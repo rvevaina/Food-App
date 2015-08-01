@@ -6,48 +6,45 @@
   <link rel="stylesheet" href="style.css">
   <link href='http://fonts.googleapis.com/css?family=Raleway:300' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
   <!-- Header -->
 
   <h1 class="title"><span>Eat this. Drink that.</span></h1>
 
+  <div class="location">
+      <h1>Where are you located?</h1><br>
+      <p>(Search limited to Canadian cities)</p><br>
+      <input type = "text" id="citySearch"><br>
+      <input type = "submit" value="Go" id="go">
+  </div>
+
+  <!-- Images -->
+
   <div class="wrapper">
-
-      <div class="location">
-          <h1>Where are you located?</h1><br>
-          <p>(Search limited to Canadian cities)</p><br>
-          <input type = "text" id="citySearch"><br>
-          <input type = "submit" value="Go" id="go">
+      <div class="images">
+          <div id= "burger"><img class="food" src="images/burger.jpg" height="250" width="250"></div>
+          <img class="and" src="images/& sign.png">
+          <div id = "beer"><img class="drink" src="images/beer.jpg" height="250" width="250"></div>
       </div>
-
-      <!-- Images -->
-
-
-        <div class="images">
-            <div id= "burger"><img class="food" src="images/burger.jpg" height="250" width="250"</div>
-            <img class="and" src="images/& sign.png">
-            <div id = "beer"><img class="drink" src="images/beer.jpg" height="250" width="250"></div>
-        </div>
-    <!--   <img class="bourbon" src="images/bourbon.png" height="300" width="400"> -->
+        <!--   <img class="bourbon" src="images/bourbon.png" height="300" width="400"> -->
 
       <!-- buttons -->
 
-        <div class="button-wrapper">
-            <div class="interestedButton">
-                <h2>Interested</h2>
-            </div>
-            <div class="notInterestedButton">
-                <h2>Not interested</h2>
-            </div>
-        </div>
+      <div class="button-wrapper">
+          <div class="interestedButton">
+              <h2>Interested</h2>
+          </div>
+          <div class="notInterestedButton">
+              <h2>Not interested</h2>
+          </div>
+      </div>
 
-      <!-- API Listings -->
-
-        <div class="container" id="restaurants"></div>
-
-    </div> <!--wrapper-->
-
-
+          <!-- API Listings -->
+      <div class="restaurant-container">
+          <div id="restaurants"></div>
+      </div>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="app.js"></script>
