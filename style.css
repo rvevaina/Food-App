@@ -40,7 +40,7 @@ h1.title {
  /*}*/
 
 .location {
-    width: 650px;
+    width: 60%;
     background: rgba(52,152,219, 0.4);
     border-radius: 15px;
     cursor: pointer;
